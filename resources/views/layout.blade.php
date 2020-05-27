@@ -38,11 +38,11 @@
                 </ul>
             </div>
             @else
-            <h5>{{ Auth::user()->firstname }}</h5>
+            <h5 style="float: right;">{{ Auth::user()->firstname }}</h5>
             <form action="logout" method="post" class="float-right">
                 @csrf
                 {{-- <input type="submit"  value="logout"> --}}
-                <button type="submit" class="btn btn-info float-right">Logout</button>
+                <button type="submit" class="btn btn-info" style="float: right;">Logout</button>
             </form>
 
         @endif

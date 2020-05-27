@@ -49,7 +49,7 @@ class ClientController extends Controller
         {
             $request->session()->flash('reg','You are registerd Succesfully');
         }
-        return view('login');
+        return view('login')->with('reg','You are registerd Succesfully');
 
     }
 
@@ -73,8 +73,9 @@ class ClientController extends Controller
     public function logout(Request $request)
     {
         auth()->logout();
-        session()->forget('success');
-        return redirect('/');
+        $request->session()->flush();
+        return redirect('/')->with('action','Successfully Logout');
+
     }
 
     public function forgetpw(Request $request)

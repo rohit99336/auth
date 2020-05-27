@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\mail;
 */
 // Route::get('/', function () {
 //     return view('welcome');
-// });
+// })->middleware("logcheck");
 
 Route::get('/f', function () {
     // return view('welcome');
@@ -38,8 +38,7 @@ Route::get('/f', function () {
     echo "email has send";
 });
 
-Route::view('/', 'home');
-Route::view('logon', 'login');
+
 
 // Route::get('profile', function () {
 //     if(session()->has('success'))
@@ -51,10 +50,13 @@ Route::view('logon', 'login');
 //         return view('home');
 //     }
 // });
-Route::view('reg', 'reg');
+
+
 
 Route::group(['middleware' => ['logcheck']], function () {
-
+    Route::view('/', 'home');
+    Route::view('logon', 'login');
+    Route::view('reg', 'reg');
     Route::view('forgetpw', 'forgetpw');
     Route::view('updatepw', 'updatepw');
     Route::post('regc','ClientController@registration');
@@ -64,4 +66,9 @@ Route::group(['middleware' => ['logcheck']], function () {
     Route::post('updatepwc','ClientController@updatepw');
 
 });
+
+// Route::group(['middleware' => ['logcheck']], function () {
+
+//     Route::view('/', 'forgetpw');
+// });
 

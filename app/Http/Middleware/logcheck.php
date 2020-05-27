@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class logcheck
 {
@@ -17,7 +18,12 @@ class logcheck
     {
         // if($request->session()->get('success'))
         // {
-        //     return view('profile');
+        //     return view('login');
+        // }
+        //  echo "testing middlware";
+
+        // if (Auth::guard($guard)->check()) {
+        //     return redirect('/home');
         // }
 
         return $next($request);

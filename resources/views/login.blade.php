@@ -25,7 +25,7 @@
     <!-- end -->
 
     @if (!Session::get('success'))
-    <form action='login' method="POST">
+    <form action='login' method="POST" class="mt-5 col-12">
         @csrf
 
         <div class="form-group">
