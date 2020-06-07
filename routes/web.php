@@ -52,16 +52,17 @@ Route::get('/f', function () {
 // });
 
 
+Route::view('dashboard', 'profile');
+Route::post('logout','ClientController@logout');
 
 Route::group(['middleware' => ['logcheck']], function () {
     Route::view('/', 'home');
-    Route::view('logon', 'login');
+    Route::view('login', 'login');
     Route::view('reg', 'reg');
     Route::view('forgetpw', 'forgetpw');
     Route::view('updatepw', 'updatepw');
     Route::post('regc','ClientController@registration');
-    Route::post('login','ClientController@login');
-    Route::post('logout','ClientController@logout');
+    Route::post('profile','ClientController@login');
     Route::post('forgetc','ClientController@forgetpw');
     Route::post('updatepwc','ClientController@updatepw');
 
@@ -72,3 +73,7 @@ Route::group(['middleware' => ['logcheck']], function () {
 //     Route::view('/', 'forgetpw');
 // });
 
+// Route::get('/clear-cache', function() {
+//     Artisan::call('cache:clear');
+//     return "Cache is cleared";
+// });

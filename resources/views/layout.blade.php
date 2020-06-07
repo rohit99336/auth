@@ -29,7 +29,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="logon">login</a>
+                        <a class="nav-link" href="login">login</a>
                     </li>
 
                     <li class="nav-item">
@@ -37,12 +37,14 @@
                     </li>
                 </ul>
             </div>
+
+
             @else
             <h5 style="float: right;">{{ Auth::user()->firstname }}</h5>
             <form action="logout" method="post" class="float-right">
                 @csrf
                 {{-- <input type="submit"  value="logout"> --}}
-                <button type="submit" class="btn btn-info" style="float: right;">Logout</button>
+                <button type="submit" class="btn btn-info logout" style="float: right;">Logout</button>
             </form>
 
         @endif

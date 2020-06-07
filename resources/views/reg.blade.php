@@ -82,7 +82,7 @@
                             <a class="small" href="forgetpw">Forgot Password?</a>
                         </div>
                         <div class="text-center">
-                            <a class="small" href="logon">Already have an account? Login!</a>
+                            <a class="small" href="login">Already have an account? Login!</a>
                         </div>
 
                         @else

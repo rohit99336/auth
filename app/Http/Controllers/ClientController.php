@@ -17,8 +17,20 @@ use Reminder;
 class ClientController extends Controller
 {
     //
+    public function profile()
+    {
+        if(session()->get('success'))
+        {
+            return view("profile");
+        }
+    }
+
     public function registration(Request $request)
     {
+        if(session()->get("success"))
+        {
+            return redirect('/');
+        }
         $data=new User;
         // return User::all();     //connection testing
         // return $request->all();   //view connection testing
@@ -51,17 +63,20 @@ class ClientController extends Controller
         }
         return view('login')->with('reg','You are registerd Succesfully');
 
+        // return redirect()->route('login')->with('reg','You are registerd Succesfully');
+
     }
 
 
     public function login(Request $request)
     {
+
         $email=$request->email;
         $password=$request->password;
         if(Auth::attempt(['email' => $email, 'password' => $password]))
         {
             $request->session()->put('success',$email);
-            return view('profile');
+            return redirect('dashboard');
         }
         else
         {

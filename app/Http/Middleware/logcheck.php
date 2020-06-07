@@ -16,15 +16,11 @@ class logcheck
      */
     public function handle($request, Closure $next)
     {
-        // if($request->session()->get('success'))
-        // {
-        //     return view('login');
-        // }
-        //  echo "testing middlware";
-
-        // if (Auth::guard($guard)->check()) {
-        //     return redirect('/home');
-        // }
+        
+        if(session()->get('success'))
+        {
+            return redirect("dashboard");
+        }
 
         return $next($request);
     }
